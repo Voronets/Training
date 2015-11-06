@@ -1,0 +1,11 @@
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\bin\Debug\WindowsFormsPhoneBookApplication.exe.config
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\bin\Debug\WindowsFormsPhoneBookApplication.exe
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\bin\Debug\WindowsFormsPhoneBookApplication.pdb
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.csprojResolveAssemblyReference.cache
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.Form1.resources
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.Properties.Resources.resources
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.csproj.GenerateResource.Cache
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.exe
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.pdb
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.FormDetails.resources
+D:\EPAM. Projects\IPipeline\Tasks\C sharp training task\WindowsFormsPhoneBookApplication\WindowsFormsPhoneBookApplication\obj\Debug\WindowsFormsPhoneBookApplication.Form3.resources
