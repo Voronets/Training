@@ -73,6 +73,7 @@
             this.dataGridPhoneBook.ReadOnly = true;
             this.dataGridPhoneBook.Size = new System.Drawing.Size(592, 241);
             this.dataGridPhoneBook.TabIndex = 0;
+            this.dataGridPhoneBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPhoneBook_CellClick);
             this.dataGridPhoneBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPhoneBook_CellContentClick);
             // 
             // personIDDataGridViewTextBoxColumn
@@ -205,12 +206,12 @@
 
         #endregion
 
-        private PhoneBookDataSet phoneBookDataSet;
+        public PhoneBookDataSet phoneBookDataSet;
         private System.Windows.Forms.BindingSource phonesBindingSource;
-        private PhoneBookDataSetTableAdapters.PhonesTableAdapter phonesTableAdapter;
+        public PhoneBookDataSetTableAdapters.PhonesTableAdapter phonesTableAdapter;
         private System.Windows.Forms.BindingSource personInfoBindingSource;
-        private PhoneBookDataSetTableAdapters.PersonInfoTableAdapter personInfoTableAdapter;
-        private System.Windows.Forms.BindingSource personInfoBindingSource1;
+        public PhoneBookDataSetTableAdapters.PersonInfoTableAdapter personInfoTableAdapter;
+        public System.Windows.Forms.BindingSource personInfoBindingSource1;
         private System.Windows.Forms.BindingSource phoneBookDataSetBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn personIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;

@@ -48,22 +48,7 @@ namespace WindowsFormsPhoneBookApplication
 
         private void dataGridPhoneBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            FormDetails formDet = new FormDetails();
-          //  formDet.textBoxID.Text = dataGridPhoneBook.CurrentRow.Cells[0].Value.ToString();
-          //  this.personInfoTableAdapter.GetData();
-
-            PhoneBookDataSet.PersonInfoRow phoneRow;
-            phoneRow = phoneBookDataSet.PersonInfo.FindByPersonID(Int32.Parse(dataGridPhoneBook.CurrentRow.Cells[0].Value.ToString()));
-
-            formDet.textBoxID.Text = phoneRow.PersonID.ToString();
-            formDet.textBoxFirstName.Text = phoneRow.FirstName;
-            formDet.comboBoxMidName.Text = phoneRow.MiddleName;
-            formDet.textBoxLastName.Text = phoneRow.LastName;
-            formDet.textBoxEmail.Text = phoneRow.EMail;
-            formDet.textBoxPhone.Text = phoneRow.PhoneN;
-            formDet.textBoxComments.Text = phoneRow.Comments;
-                        
-            formDet.ShowDialog();          
+            
         }
 
         private void addNewContactToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,12 +63,59 @@ namespace WindowsFormsPhoneBookApplication
             formDet.buttonPrevRecord.Visible = false;
             formDet.checkBoxEditDetails.Checked = true;
             formDet.checkBoxEditDetails.Visible = false;
-            formDet.ShowDialog();           
+            formDet.ShowDialog();
+
+            this.personInfoTableAdapter.Fill(this.phoneBookDataSet.PersonInfo);
+
+            this.Refresh();
+            this.Update();         
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dataGridPhoneBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FormDetails formDet = new FormDetails();
+            //  formDet.textBoxID.Text = dataGridPhoneBook.CurrentRow.Cells[0].Value.ToString();
+            //  this.personInfoTableAdapter.GetData();
+
+            PhoneBookDataSet.PersonInfoRow phoneRow;
+            phoneRow = phoneBookDataSet.PersonInfo.FindByPersonID(Int32.Parse(dataGridPhoneBook.CurrentRow.Cells[0].Value.ToString()));
+                        
+            int rowIndex;
+            rowIndex = phoneBookDataSet.PersonInfo.Rows.IndexOf(phoneRow);
+            int lastRowIndex;
+            lastRowIndex = phoneBookDataSet.PersonInfo.Rows.Count - 1;
+                                               
+            if (rowIndex == 0)
+                formDet.buttonPrevRecord.Enabled = false;
+            else if (rowIndex == lastRowIndex)
+                formDet.buttonNextRecord.Enabled = false;
+            else
+            {
+                formDet.buttonPrevRecord.Enabled = true;
+                formDet.buttonNextRecord.Enabled = true;
+            }
+
+           // MessageBox.Show("Index" + rowIndex);
+                        
+            formDet.textBoxID.Text = phoneRow.PersonID.ToString();
+            formDet.textBoxFirstName.Text = phoneRow.FirstName;
+            formDet.comboBoxMidName.Text = phoneRow.MiddleName;
+            formDet.textBoxLastName.Text = phoneRow.LastName;
+            formDet.textBoxEmail.Text = phoneRow.EMail;
+            formDet.textBoxPhone.Text = phoneRow.PhoneN;
+            formDet.textBoxComments.Text = phoneRow.Comments;
+
+            formDet.ShowDialog();
+
+            this.personInfoTableAdapter.Fill(this.phoneBookDataSet.PersonInfo);
+            
+            this.Refresh();
+            this.Update();         
         }
     }
 }

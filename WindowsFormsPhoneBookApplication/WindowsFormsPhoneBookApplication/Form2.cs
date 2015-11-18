@@ -12,18 +12,6 @@ namespace WindowsFormsPhoneBookApplication
 {
     public partial class FormDetails : Form
     {
-      //  Form1 _owner;
-
-    /*    public FormDetails(Form1 owner)
-        {
-            _owner = owner;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDetails_FormClosing);
-        }
-        private void FormDetails_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _owner.PerformRefresh();
-        }*/
-
         public FormDetails()
         {
             InitializeComponent();
@@ -60,6 +48,7 @@ namespace WindowsFormsPhoneBookApplication
                 buttonSave.Enabled = false;
                 buttonDelete.Enabled = false;
             }
+
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -77,6 +66,9 @@ namespace WindowsFormsPhoneBookApplication
             {
                 PhoneBookDataSet.PersonInfoRow phoneRow;
                 phoneRow = phoneBookDataSet.PersonInfo.FindByPersonID(Int32.Parse(textBoxID.Text));
+
+              //  int rowIndex;
+              //  rowIndex = phoneBookDataSet.PersonInfo.Rows.IndexOf(phoneRow);
 
                 phoneRow.FirstName = textBoxFirstName.Text;
                 phoneRow.MiddleName = comboBoxMidName.Text;
@@ -117,40 +109,84 @@ namespace WindowsFormsPhoneBookApplication
 
         private void buttonPrevRecord_Click(object sender, EventArgs e)
         {
+            PhoneBookDataSet.PersonInfoRow phoneRow;
+            phoneRow = phoneBookDataSet.PersonInfo.FindByPersonID(Int32.Parse(textBoxID.Text));
+
+            int rowIndex;
+            rowIndex = phoneBookDataSet.PersonInfo.Rows.IndexOf(phoneRow);
+
+            int lastRowIndex;
+            lastRowIndex = phoneBookDataSet.PersonInfo.Rows.Count - 1;
+
+            if (rowIndex > 0)
+             {
+                rowIndex--;
+                buttonPrevRecord.Enabled = true;
+            }
+             
+            if (rowIndex == 0) 
+                buttonPrevRecord.Enabled = false;
+
+            if (rowIndex == lastRowIndex)
+                buttonNextRecord.Enabled = false;
+            else
+                buttonNextRecord.Enabled = true;
+
+            phoneRow = phoneBookDataSet.PersonInfo[rowIndex];
+
+            textBoxID.Text = phoneRow.PersonID.ToString();
+            textBoxFirstName.Text = phoneRow.FirstName;
+            comboBoxMidName.Text = phoneRow.MiddleName;
+            textBoxLastName.Text = phoneRow.LastName;
+            textBoxEmail.Text = phoneRow.EMail;
+            textBoxPhone.Text = phoneRow.PhoneN;
+            textBoxComments.Text = phoneRow.Comments;
 
         }
 
         private void buttonNextRecord_Click(object sender, EventArgs e)
         {
+            PhoneBookDataSet.PersonInfoRow phoneRow;
+            phoneRow = phoneBookDataSet.PersonInfo.FindByPersonID(Int32.Parse(textBoxID.Text));
 
+            int rowIndex;
+            rowIndex = phoneBookDataSet.PersonInfo.Rows.IndexOf(phoneRow);
+
+            int lastRowIndex;
+            lastRowIndex = phoneBookDataSet.PersonInfo.Rows.Count - 1;
+
+            if (rowIndex < lastRowIndex)
+            {
+                rowIndex++;
+                buttonNextRecord.Enabled = true;
+            }
+
+            if (rowIndex == lastRowIndex)
+                buttonNextRecord.Enabled = false;
+
+            if (rowIndex == 0)
+                buttonPrevRecord.Enabled = false;
+            else
+                buttonPrevRecord.Enabled = true;
+
+            phoneRow = phoneBookDataSet.PersonInfo[rowIndex];
+
+            textBoxID.Text = phoneRow.PersonID.ToString();
+            textBoxFirstName.Text = phoneRow.FirstName;
+            comboBoxMidName.Text = phoneRow.MiddleName;
+            textBoxLastName.Text = phoneRow.LastName;
+            textBoxEmail.Text = phoneRow.EMail;
+            textBoxPhone.Text = phoneRow.PhoneN;
+            textBoxComments.Text = phoneRow.Comments;
         }
         
         private void buttonDetailsCancel_Click(object sender, EventArgs e)
         { 
-            //Form1 gridForm = new Form1();
-            
-                //this.personInfoTableAdapter.Fill(this.phoneBookDataSet.PersonInfo);
-     //       this.personInfoTableAdapter.Update(this.phoneBookDataSet.PersonInfo);
-    //        gridForm.dataGridPhoneBook.DataSource = this.phoneBookDataSet.PersonInfo;
-            //gridForm.dataGridPhoneBook.Update();
-            
-        //   gridForm.Refresh();
-        //   gridForm.Update();
-       //    gridForm.Invalidate();
-        //    gridForm.UpdateGrid();
-      //    Application.
+             this.Close();            
+        }
 
-            this.personInfoTableAdapter.Fill(this.phoneBookDataSet.PersonInfo);
-            
-
-            //this.personInfoTableAdapter.Fill(this.phoneBookDataSet.PersonInfo);
-
-            /*this.personInfoBindingSource1.EndEdit();
-            this.personInfoTableAdapter.Fill(this.phoneBookDataSet.PersonInfo);
-            gridForm.dataGridPhoneBook.DataSource = this.phoneBookDataSet.PersonInfo;
-            gridForm.Refresh();
-            gridForm.Update();*/
-            this.Close();            
+        private void FormDetails_FormClosing(object sender, FormClosingEventArgs e)
+        {          
         }  
     }
 }

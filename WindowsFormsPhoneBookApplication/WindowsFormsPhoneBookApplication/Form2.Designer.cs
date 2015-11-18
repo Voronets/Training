@@ -36,10 +36,10 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.pictureBoxPerson = new System.Windows.Forms.PictureBox();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.phoneBookDataSet = new WindowsFormsPhoneBookApplication.PhoneBookDataSet();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.personInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.phoneBookDataSet = new WindowsFormsPhoneBookApplication.PhoneBookDataSet();
             this.buttonDetailsCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelPhones = new System.Windows.Forms.Label();
@@ -51,20 +51,20 @@
             this.textBoxComments = new System.Windows.Forms.TextBox();
             this.personInfoTableAdapter = new WindowsFormsPhoneBookApplication.PhoneBookDataSetTableAdapters.PersonInfoTableAdapter();
             this.textBoxID = new System.Windows.Forms.TextBox();
+            this.personInfoBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.labelID = new System.Windows.Forms.Label();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.personInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.personInfoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.personInfoBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.personInfoBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.labelRecDeleted = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneBookDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBoxEditDetails
@@ -116,9 +116,11 @@
             // 
             // pictureBoxPerson
             // 
+            this.pictureBoxPerson.Image = global::WindowsFormsPhoneBookApplication.Properties.Resources.No_Image;
             this.pictureBoxPerson.Location = new System.Drawing.Point(25, 26);
             this.pictureBoxPerson.Name = "pictureBoxPerson";
             this.pictureBoxPerson.Size = new System.Drawing.Size(175, 206);
+            this.pictureBoxPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPerson.TabIndex = 5;
             this.pictureBoxPerson.TabStop = false;
             // 
@@ -130,6 +132,11 @@
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(250, 20);
             this.textBoxFirstName.TabIndex = 6;
+            // 
+            // phoneBookDataSet
+            // 
+            this.phoneBookDataSet.DataSetName = "PhoneBookDataSet";
+            this.phoneBookDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textBoxLastName
             // 
@@ -153,11 +160,6 @@
             // 
             this.personInfoBindingSource.DataMember = "PersonInfo";
             this.personInfoBindingSource.DataSource = this.phoneBookDataSet;
-            // 
-            // phoneBookDataSet
-            // 
-            this.phoneBookDataSet.DataSetName = "PhoneBookDataSet";
-            this.phoneBookDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // buttonDetailsCancel
             // 
@@ -262,6 +264,11 @@
             this.textBoxID.Size = new System.Drawing.Size(250, 20);
             this.textBoxID.TabIndex = 20;
             // 
+            // personInfoBindingSource4
+            // 
+            this.personInfoBindingSource4.DataMember = "PersonInfo";
+            this.personInfoBindingSource4.DataSource = this.phoneBookDataSet;
+            // 
             // labelID
             // 
             this.labelID.AutoSize = true;
@@ -294,11 +301,6 @@
             // 
             this.personInfoBindingSource3.DataMember = "PersonInfo";
             this.personInfoBindingSource3.DataSource = this.phoneBookDataSet;
-            // 
-            // personInfoBindingSource4
-            // 
-            this.personInfoBindingSource4.DataMember = "PersonInfo";
-            this.personInfoBindingSource4.DataSource = this.phoneBookDataSet;
             // 
             // labelRecDeleted
             // 
@@ -340,14 +342,15 @@
             this.Controls.Add(this.checkBoxEditDetails);
             this.Name = "FormDetails";
             this.Text = "View Details";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDetails_FormClosing);
             this.Load += new System.EventHandler(this.FormDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneBookDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personInfoBindingSource4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
